@@ -17,7 +17,7 @@ public class Game {
     public int player1Input;
     public int player2Input;
 
-    public int winner = 0; // can be 0, 1, 2
+    public int winner = 0; /*it can be 0, 1, 2 if 3 then error*/
 
     public void grid() {
         System.out.println("   |   |   ");
@@ -59,7 +59,7 @@ public class Game {
                 square9 = symbol;
                 break;
             default :
-            	System.out.println("inva");
+            error();
         }
     }
 
@@ -109,7 +109,7 @@ public class Game {
             checkInput("X", 1);
             grid();
 
-            if (winner != 0) {
+            if (winner != 0) {     
                 break;
             }
 
@@ -121,6 +121,11 @@ public class Game {
         }
         
         whoWon();
+    }
+
+    public void error() {
+        winner = 3;
+        System.out.println("error :(");
     }
 
     public static void main(String[] args) {
